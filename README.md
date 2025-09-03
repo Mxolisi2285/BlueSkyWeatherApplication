@@ -29,3 +29,30 @@ Frontend: Thymeleaf, HTML, CSS
 API Integration: OpenWeatherMap API
 
 Java Version: 17+ (or compatible)
+
+
+Usage
+
+Fetch Live Weather
+
+Enter a city name and click Fetch Weather.
+
+The latest weather data will appear and be saved to the database.
+
+View Full History
+
+Enter a city name and click Get History.
+
+Displays all saved weather records for that city.
+
+View Recent History
+
+Enter a city name and number of hours, then click Get Recent History.
+
+Displays weather records for the last N hours.
+
+Manual Weather Entry (Optional)
+
+Fill in city, temperature, humidity, and description.
+
+Click Save Weather to store the record.
