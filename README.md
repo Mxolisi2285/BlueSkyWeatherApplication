@@ -1,10 +1,10 @@
 BlueSky Weather Application
 
-BlueSky is a Spring Boot application that allows users to fetch, view, and store weather information for different cities. It integrates with the OpenWeatherMap API to retrieve live weather data and persists it in an H2 in-memory database. The application features a Thymeleaf frontend, allowing users to interact with the system through forms and tables.
+BlueSky is a Spring Boot application that allows users to fetch, view, and store weather information for different cities. It integrates with the OpenWeatherMap API to retrieve live weather data and stores it in an H2 in-memory database. The application includes a Thymeleaf frontend for dynamic interaction and displays weather history in a user-friendly format.
 
 Features
 
-Fetch live weather data from OpenWeatherMap API and store it in the database.
+Fetch live weather data from OpenWeatherMap and save it to the database.
 
 View full weather history for a city, sorted by most recent records.
 
@@ -12,68 +12,42 @@ Filter weather history for a city in the last N hours.
 
 Manual entry of weather records (optional).
 
-Thymeleaf frontend for user-friendly interaction.
+Responsive frontend using Thymeleaf and CSS.
 
-Responsive design using separate CSS for styling.
-
-Error handling for invalid API keys or cities, showing friendly messages on the frontend.
+Error handling for invalid API keys or cities, showing user-friendly messages.
 
 Technologies Used
 
 Backend: Spring Boot, Spring MVC, Spring Data JPA
 
-Database: H2 in-memory database
+Database: H2 in-memory
 
 Frontend: Thymeleaf, HTML, CSS
 
 API Integration: OpenWeatherMap API
 
-Java Version: 17+ (or compatible)
+How to Run the Application
 
+Clone the repository and navigate into the project folder. Configure your OpenWeatherMap API key either directly in application.properties (weather.api.key=YOUR_API_KEY_HERE) or, preferably, as an environment variable (WEATHER_API_KEY). Build and run the application using Maven (mvn clean install and mvn spring-boot:run) or your IDE by running BlueSkyApplication.java. Access the frontend at http://localhost:8080/weather to interact with forms and view weather history, or use the API endpoints (/api/weather/history/{city}, /api/weather/fetch/{city}). The H2 console is available at http://localhost:8080/h2-console to inspect stored records.
 
-Usage
+Database
 
-Fetch Live Weather
+H2 in-memory database (no setup required).
 
-Enter a city name and click Fetch Weather.
+H2 Console: http://localhost:8080/h2-console
 
-The latest weather data will appear and be saved to the database.
-
-View Full History
-
-Enter a city name and click Get History.
-
-Displays all saved weather records for that city.
-
-View Recent History
-
-Enter a city name and number of hours, then click Get Recent History.
-
-Displays weather records for the last N hours.
-
-
-Error Handling
-
-Invalid API keys or city names will not crash the frontend.
-
-A friendly message is displayed if the weather cannot be fetched.
-
-
-
-
-Manual Weather Entry (Optional)
-
-Fill in city, temperature, humidity, and description.
-
+JDBC URL: jdbc:h2:mem:testdb
 
 Future Improvements
 
-Add responsive design for mobile devices.
+Deploy to a cloud platform (Render, Railway, Fly.io) for live access.
 
 Enable user authentication for personalized weather tracking.
 
-Integrate charts to visualize weather trends over time.
+Add charts and visualizations for weather trends.
 
-Switch to persistent database (PostgreSQL/MySQL) for production.
+Switch to a persistent database (PostgreSQL/MySQL) for production.
 
-Click Save Weather to store the record.
+User: sa
+
+Password: (leave blank)
