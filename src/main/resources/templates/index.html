@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Your Weather, Every Day.</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Your Weather, Every Day.</h1>
+
+    <!-- Fetch Live Weather -->
+    <form th:action="@{/weather/fetch}" method="post" class="form-section">
+        <input type="text" name="city" placeholder="Enter city" required>
+        <button type="submit">Fetch Weather</button>
+    </form>
+
+    <!-- Get Full History -->
+    <form th:action="@{/weather/history}" method="get" class="form-section">
+        <input type="text" name="city" placeholder="Enter city for history" required>
+        <button type="submit">Get History</button>
+    </form>
+
+    <!-- Latest Weather Display -->
+    <div th:if="${weather != null}" class="weather-section">
+        <h2>Latest Weather</h2>
+        <p>City: <span th:text="${weather.city}"></span></p>
+        <p>Description: <span th:text="${weather.description}"></span></p>
+        <p>Temperature: <span th:text="${weather.temperature}"></span> °C</p>
+        <p>Humidity: <span th:text="${weather.humidity}"></span> %</p>
+    </div>
+
+    <!-- Weather History Table -->
+    <div th:if="${history != null}" class="history-section">
+        <h2>Weather History</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>City</th>
+                <th>Description</th>
+                <th>Temperature</th>
+                <th>Humidity</th>
+                <th>Timestamp</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="record : ${history}">
+                <td th:text="${record.city}"></td>
+                <td th:text="${record.description}"></td>
+                <td th:text="${record.temperature}"></td>
+                <td th:text="${record.humidity}"></td>
+                <td th:text="${record.timestamp}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Get Recent History for Last N Hours -->
+    <form th:action="@{/weather/history/last}" method="get" class="form-section">
+        <input type="text" name="city" placeholder="Enter city" required>
+        <input type="number" name="hours" placeholder="Last N hours" min="1" required>
+        <button type="submit">Get Recent History</button>
+    </form>
+
+    <!-- Recent History Table -->
+    <div th:if="${recentHistory != null}" class="history-section">
+        <h2>Weather History (Last N Hours)</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>City</th>
+                <th>Description</th>
+                <th>Temperature</th>
+                <th>Humidity</th>
+                <th>Timestamp</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="record : ${recentHistory}">
+                <td th:text="${record.city}"></td>
+                <td th:text="${record.description}"></td>
+                <td th:text="${record.temperature}"></td>
+                <td th:text="${record.humidity}"></td>
+                <td th:text="${record.timestamp}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
