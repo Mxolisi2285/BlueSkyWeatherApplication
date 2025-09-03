@@ -65,4 +65,15 @@ Manual Weather Entry (Optional)
 
 Fill in city, temperature, humidity, and description.
 
+
+Future Improvements
+
+Add responsive design for mobile devices.
+
+Enable user authentication for personalized weather tracking.
+
+Integrate charts to visualize weather trends over time.
+
+Switch to persistent database (PostgreSQL/MySQL) for production.
+
 Click Save Weather to store the record.
