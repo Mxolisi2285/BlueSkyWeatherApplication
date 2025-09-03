@@ -51,6 +51,16 @@ Enter a city name and number of hours, then click Get Recent History.
 
 Displays weather records for the last N hours.
 
+
+Error Handling
+
+Invalid API keys or city names will not crash the frontend.
+
+A friendly message is displayed if the weather cannot be fetched.
+
+
+
+
 Manual Weather Entry (Optional)
 
 Fill in city, temperature, humidity, and description.
