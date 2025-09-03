@@ -9,7 +9,7 @@ import za.ac.prayer.BlueSky.model.WeatherRecord;
 public class WeatherApiClient {
 
     private final RestTemplate restTemplate = new RestTemplate();
-    private final String API_KEY = "cd2cdd165a61e58ed22487f47d79a6c3"; // Replace with your key
+    private final String API_KEY = "cd2cdd165a61e58ed22487f47d79a6x2"; // Replace with your key
     private final String BASE_URL = "https://api.openweathermap.org/data/2.5/weather?q=%s&units=metric&appid=%s";
 
     public WeatherRecord fetchWeather(String city) {
